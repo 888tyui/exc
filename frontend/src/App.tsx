@@ -187,37 +187,7 @@ function AppShell() {
                 Connect your wallet to reserve a warrior number and be first in when exc.fun launches.
               </p>
 
-              <div className="community">
-                <div className="avatars">
-                  <span className="avatar a1" />
-                  <span className="avatar a2" />
-                  <span className="avatar a3" />
-                  <span className="avatar a4" />
-                  <span className="avatar a5" />
-                </div>
-                <p className="muted">Join 12,500+ warriors on the waitlist</p>
-              </div>
-
-              <div className="countdown">
-                <div>
-                  <p className="time">15</p>
-                  <p className="label">Days</p>
-                </div>
-                <div>
-                  <p className="time">20</p>
-                  <p className="label">Hours</p>
-                </div>
-                <div>
-                  <p className="time">20</p>
-                  <p className="label">Minutes</p>
-                </div>
-                <div>
-                  <p className="time">35</p>
-                  <p className="label">Seconds</p>
-                </div>
-              </div>
-
-              <div className="actions hero-actions">
+              <div className="actions hero-actions single-row">
                 <WalletMultiButton className="btn primary" />
                 <a
                   className="btn ghost"
@@ -227,13 +197,11 @@ function AppShell() {
                 >
                   Twitter
                 </a>
-              </div>
-              <div className="actions secondary">
                 <button className="btn disabled" disabled>
-                  Game (coming soon)
+                  Game
                 </button>
                 <button className="btn disabled" disabled>
-                  Docs (coming soon)
+                  Docs
                 </button>
               </div>
 
