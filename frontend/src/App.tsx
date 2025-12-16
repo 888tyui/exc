@@ -22,68 +22,6 @@ function shorten(address: string) {
   return `${address.slice(0, 4)}...${address.slice(-4)}`;
 }
 
-function VideoBlock() {
-  return (
-    <div className="video-block">
-      <div className="video-inner">
-        <div className="play-circle">
-          <span className="play-triangle" />
-        </div>
-        <p className="muted center">See how exc works (2m)</p>
-      </div>
-    </div>
-  );
-}
-
-function FAQ() {
-  const items = [
-    {
-      q: "What is exc.fun?",
-      a: "A Solana-powered drop that lets you summon a warrior identity before launch.",
-    },
-    {
-      q: "What happens when I connect?",
-      a: "We reserve your warrior number and keep your address on the allowlist.",
-    },
-    {
-      q: "Is Ledger or hardware required?",
-      a: "No. We only use software wallets (Phantom, Solflare, Backpack, Glow).",
-    },
-    {
-      q: "When does it launch?",
-      a: "Early 2025. Join the waitlist to be notified first.",
-    },
-  ];
-
-  const [open, setOpen] = useState<number | null>(null);
-
-  return (
-    <div className="faq">
-      <h2>Frequently asked questions</h2>
-      <p className="muted center">
-        Everything you need to know about exc.fun and the warrior launch.
-      </p>
-      <div className="faq-list">
-        {items.map((item, idx) => {
-          const active = open === idx;
-          return (
-            <button
-              key={item.q}
-              className={`faq-item ${active ? "active" : ""}`}
-              onClick={() => setOpen(active ? null : idx)}
-              type="button"
-            >
-              <span>{item.q}</span>
-              <span className="faq-icon">{active ? "−" : "+"}</span>
-              {active && <p className="faq-answer">{item.a}</p>}
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 function WarriorStatus() {
   const { publicKey } = useWallet();
   const [warriorNumber, setWarriorNumber] = useState<number | null>(null);
@@ -206,7 +144,6 @@ function AppShell() {
               <WarriorStatus />
             </div>
 
-            <VideoBlock />
           </main>
         </WalletModalProvider>
       </WalletProvider>
