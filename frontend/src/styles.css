@@ -43,14 +43,14 @@ body {
 }
 
 .logo-mark {
-  width: 96px;
-  height: 96px;
+  width: 128px;
+  height: 128px;
   margin: 0 auto 18px;
   border-radius: 20px;
   background: #0f0f0f;
   display: grid;
   place-items: center;
-  padding: 14px;
+  padding: 16px;
 }
 
 .logo-mark img {

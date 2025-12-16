@@ -134,9 +134,7 @@ function WarriorStatus() {
     };
   }, [publicKey]);
 
-  if (!publicKey) {
-    return <p className="muted">Connect your Solana wallet to see your warrior number.</p>;
-  }
+  if (!publicKey) return null;
 
   if (status === "loading") {
     return <p className="muted">Claiming your warrior number...</p>;
@@ -182,9 +180,9 @@ function AppShell() {
               <div className="logo-mark">
                 <img src={logo} alt="exc.fun logo" />
               </div>
-              <h1 className="hero-title">Summon your Solana warrior</h1>
+              <h1 className="hero-title">これは私が伝説の勇者になった物語だ。</h1>
               <p className="subtitle">
-                Connect your wallet to reserve a warrior number and be first in when exc.fun launches.
+                This is the story of how I became the legendary hero.
               </p>
 
               <div className="actions hero-actions single-row">
@@ -209,8 +207,6 @@ function AppShell() {
             </div>
 
             <VideoBlock />
-
-            <FAQ />
           </main>
         </WalletModalProvider>
       </WalletProvider>
