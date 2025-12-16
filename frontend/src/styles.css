@@ -2,7 +2,7 @@
   color-scheme: dark;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  background-color: #060606;
+  background-color: #0f0f0f;
   color: #f7f7f7;
   letter-spacing: -0.015em;
 }
@@ -14,21 +14,8 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at 20% 20%, #0f1116, #060606 45%),
-    radial-gradient(circle at 80% 0%, #0d0f13, #060606 35%);
-  position: relative;
+  background: #0f0f0f;
   overflow-x: hidden;
-}
-
-body::before,
-body::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.04), transparent 50%),
-    radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.03), transparent 45%);
-  pointer-events: none;
-  z-index: -1;
 }
 
 .page {
@@ -45,71 +32,23 @@ body::after {
   width: 100%;
   padding: 48px 32px 42px;
   border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.25));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  background: #111216;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.55);
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.panel::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% -10%, rgba(197, 255, 61, 0.12), transparent 38%);
-  pointer-events: none;
-}
-
 .logo-mark {
-  width: 52px;
-  height: 52px;
+  width: 64px;
+  height: 64px;
   margin: 0 auto 18px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #c5ff3d, #9be21a);
-  color: #0c0d0f;
+  border-radius: 16px;
+  background: #0f0f0f;
   display: grid;
   place-items: center;
-  font-weight: 800;
-  letter-spacing: -0.08em;
-  font-size: 18px;
-  box-shadow: 0 15px 40px rgba(197, 255, 61, 0.35);
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  margin-bottom: 18px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #c5ff3d;
-  box-shadow: 0 0 0 8px rgba(197, 255, 61, 0.12);
-  animation: pulse 1600ms infinite;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 8px rgba(197, 255, 61, 0.15);
-  }
-  70% {
-    box-shadow: 0 0 0 18px rgba(197, 255, 61, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 8px rgba(197, 255, 61, 0);
-  }
+  padding: 10px;
 }
 
 .hero-title {
@@ -126,33 +65,6 @@ body::after {
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.waitlist-form {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  width: min(640px, 100%);
-  margin: 0 auto 20px;
-  padding: 4px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-}
-
-.waitlist-form input {
-  flex: 1;
-  height: 48px;
-  padding: 0 16px;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #f7f7f7;
-  font-size: 15px;
-}
-
-.waitlist-form input::placeholder {
-  color: #9ca0a7;
 }
 
 .actions {
@@ -185,15 +97,15 @@ body::after {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #c5ff3d, #9be21a);
-  color: #0c0d0f;
-  box-shadow: 0 10px 30px rgba(197, 255, 61, 0.35);
+  background: #435ee2;
+  color: #f7f7f7;
+  box-shadow: 0 10px 30px rgba(67, 94, 226, 0.35);
 }
 
 .btn.accent {
-  background: linear-gradient(135deg, #c5ff3d, #9be21a);
-  color: #0c0d0f;
-  box-shadow: 0 10px 30px rgba(197, 255, 61, 0.35);
+  background: #435ee2;
+  color: #f7f7f7;
+  box-shadow: 0 10px 30px rgba(67, 94, 226, 0.35);
   padding: 12px 18px;
   border-radius: 999px;
 }
@@ -231,7 +143,7 @@ body::after {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #c5ff3d, #3de7ff);
+  background: #435ee2;
   border: 2px solid #060606;
   margin-left: -10px;
 }
@@ -261,7 +173,7 @@ body::after {
 .countdown div {
   padding: 10px 6px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -310,18 +222,16 @@ body::after {
 .video-block {
   width: 100%;
   border-radius: 18px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.35));
+  background: #101218;
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 18px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02),
-    0 30px 80px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
 }
 
 .video-inner {
   position: relative;
   border-radius: 14px;
-  background: radial-gradient(circle at 50% 50%, rgba(197, 255, 61, 0.08), transparent 45%),
-    #050505;
+  background: #0c0d11;
   border: 1px solid rgba(255, 255, 255, 0.05);
   min-height: 320px;
   display: grid;
@@ -329,36 +239,14 @@ body::after {
   overflow: hidden;
 }
 
-.video-inner::after {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: conic-gradient(
-    from 45deg,
-    rgba(197, 255, 61, 0.08),
-    transparent,
-    rgba(61, 231, 255, 0.08),
-    transparent
-  );
-  filter: blur(30px);
-  opacity: 0.4;
-  animation: rotate 18s linear infinite;
-}
-
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .play-circle {
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #c5ff3d, #9be21a);
+  background: #435ee2;
   display: grid;
   place-items: center;
-  box-shadow: 0 20px 50px rgba(197, 255, 61, 0.35);
+  box-shadow: 0 20px 50px rgba(67, 94, 226, 0.35);
   position: relative;
   z-index: 1;
   animation: float 3s ease-in-out infinite;
@@ -416,12 +304,12 @@ body::after {
 
 .faq-item .faq-icon {
   font-size: 20px;
-  color: #c5ff3d;
+  color: #435ee2;
   margin-left: 16px;
 }
 
 .faq-item.active {
-  border-color: rgba(197, 255, 61, 0.3);
+  border-color: rgba(67, 94, 226, 0.4);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
@@ -433,21 +321,6 @@ body::after {
 }
 
 @media (max-width: 640px) {
-  .waitlist-form {
-    flex-direction: column;
-    padding: 8px;
-  }
-
-  .waitlist-form input {
-    width: 100%;
-    height: 46px;
-  }
-
-  .btn.accent {
-    width: 100%;
-    justify-content: center;
-  }
-
   .countdown {
     grid-template-columns: repeat(2, 1fr);
   }

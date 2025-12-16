@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ConnectionProvider,
   WalletProvider,
@@ -13,38 +13,13 @@ import { PhantomWalletAdapter } from "@solana/wallet-adapter-phantom";
 import { SolflareWalletAdapter } from "@solana/wallet-adapter-solflare";
 import { BackpackWalletAdapter } from "@solana/wallet-adapter-backpack";
 import { GlowWalletAdapter } from "@solana/wallet-adapter-glow";
+import logo from "./logoa1.png";
 
 const apiBase = import.meta.env.VITE_API_BASE || "http://localhost:4000";
 const endpoint = clusterApiUrl("mainnet-beta");
 
 function shorten(address: string) {
   return `${address.slice(0, 4)}...${address.slice(-4)}`;
-}
-
-function WaitlistForm() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const onSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setSubmitted(true);
-  };
-
-  return (
-    <form className="waitlist-form" onSubmit={onSubmit}>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <button type="submit" className="btn accent">
-        {submitted ? "Joined" : "Join waitlist"}
-      </button>
-    </form>
-  );
 }
 
 function VideoBlock() {
@@ -204,17 +179,13 @@ function AppShell() {
         <WalletModalProvider>
           <main className="page">
             <div className="panel">
-              <div className="logo-mark">exc</div>
-              <div className="badge">
-                <span className="dot" />
-                Available in early 2025
+              <div className="logo-mark">
+                <img src={logo} alt="exc.fun logo" />
               </div>
-              <h1 className="hero-title">Get early access to exc.fun</h1>
+              <h1 className="hero-title">Summon your Solana warrior</h1>
               <p className="subtitle">
-                Be among the first to summon warriors on Solana. Connect, reserve your number, and be notified when we launch.
+                Connect your wallet to reserve a warrior number and be first in when exc.fun launches.
               </p>
-
-              <WaitlistForm />
 
               <div className="community">
                 <div className="avatars">
