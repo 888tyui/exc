@@ -9,10 +9,9 @@ const connectionOptions = {};
 if (process.env.DATABASE_URL) {
   connectionOptions.connectionString = process.env.DATABASE_URL;
 } else if (
-  process.env.PGHOST ||
-  process.env.PGPORT ||
-  process.env.PGUSER ||
-  process.env.PGPASSWORD ||
+  process.env.PGHOST &&
+  process.env.PGUSER &&
+  process.env.PGPASSWORD &&
   process.env.PGDATABASE
 ) {
   connectionOptions.host = process.env.PGHOST;
@@ -22,6 +21,11 @@ if (process.env.DATABASE_URL) {
   connectionOptions.user = process.env.PGUSER;
   connectionOptions.password = process.env.PGPASSWORD;
   connectionOptions.database = process.env.PGDATABASE;
+} else {
+  console.error(
+    "Postgres configuration missing. Set DATABASE_URL or PGHOST/PGPORT/PGUSER/PGPASSWORD/PGDATABASE."
+  );
+  process.exit(1);
 }
 if (process.env.PGSSL === "true") {
   connectionOptions.ssl = { rejectUnauthorized: false };
