@@ -1,10 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import {
   ConnectionProvider,
   WalletProvider,
   useWallet,
 } from "@solana/wallet-adapter-react";
-import { WalletModalProvider, WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import {
+  WalletModalProvider,
+  WalletMultiButton,
+} from "@solana/wallet-adapter-react-ui";
 import { clusterApiUrl } from "@solana/web3.js";
 import { PhantomWalletAdapter } from "@solana/wallet-adapter-phantom";
 import { SolflareWalletAdapter } from "@solana/wallet-adapter-solflare";
@@ -16,6 +19,94 @@ const endpoint = clusterApiUrl("mainnet-beta");
 
 function shorten(address: string) {
   return `${address.slice(0, 4)}...${address.slice(-4)}`;
+}
+
+function WaitlistForm() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setSubmitted(true);
+  };
+
+  return (
+    <form className="waitlist-form" onSubmit={onSubmit}>
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <button type="submit" className="btn accent">
+        {submitted ? "Joined" : "Join waitlist"}
+      </button>
+    </form>
+  );
+}
+
+function VideoBlock() {
+  return (
+    <div className="video-block">
+      <div className="video-inner">
+        <div className="play-circle">
+          <span className="play-triangle" />
+        </div>
+        <p className="muted center">See how exc works (2m)</p>
+      </div>
+    </div>
+  );
+}
+
+function FAQ() {
+  const items = [
+    {
+      q: "What is exc.fun?",
+      a: "A Solana-powered drop that lets you summon a warrior identity before launch.",
+    },
+    {
+      q: "What happens when I connect?",
+      a: "We reserve your warrior number and keep your address on the allowlist.",
+    },
+    {
+      q: "Is Ledger or hardware required?",
+      a: "No. We only use software wallets (Phantom, Solflare, Backpack, Glow).",
+    },
+    {
+      q: "When does it launch?",
+      a: "Early 2025. Join the waitlist to be notified first.",
+    },
+  ];
+
+  const [open, setOpen] = useState<number | null>(null);
+
+  return (
+    <div className="faq">
+      <h2>Frequently asked questions</h2>
+      <p className="muted center">
+        Everything you need to know about exc.fun and the warrior launch.
+      </p>
+      <div className="faq-list">
+        {items.map((item, idx) => {
+          const active = open === idx;
+          return (
+            <button
+              key={item.q}
+              className={`faq-item ${active ? "active" : ""}`}
+              onClick={() => setOpen(active ? null : idx)}
+              type="button"
+            >
+              <span>{item.q}</span>
+              <span className="faq-icon">{active ? "−" : "+"}</span>
+              {active && <p className="faq-answer">{item.a}</p>}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 function WarriorStatus() {
@@ -112,13 +203,50 @@ function AppShell() {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <main className="page">
-            <div className="card">
-              <p className="eyebrow">exc.fun</p>
-              <h1 className="title">Summon the next warrior.</h1>
+            <div className="panel">
+              <div className="logo-mark">exc</div>
+              <div className="badge">
+                <span className="dot" />
+                Available in early 2025
+              </div>
+              <h1 className="hero-title">Get early access to exc.fun</h1>
               <p className="subtitle">
-                A sleek Solana-powered teaser. Connect to reserve your warrior number before launch.
+                Be among the first to summon warriors on Solana. Connect, reserve your number, and be notified when we launch.
               </p>
-              <div className="actions">
+
+              <WaitlistForm />
+
+              <div className="community">
+                <div className="avatars">
+                  <span className="avatar a1" />
+                  <span className="avatar a2" />
+                  <span className="avatar a3" />
+                  <span className="avatar a4" />
+                  <span className="avatar a5" />
+                </div>
+                <p className="muted">Join 12,500+ warriors on the waitlist</p>
+              </div>
+
+              <div className="countdown">
+                <div>
+                  <p className="time">15</p>
+                  <p className="label">Days</p>
+                </div>
+                <div>
+                  <p className="time">20</p>
+                  <p className="label">Hours</p>
+                </div>
+                <div>
+                  <p className="time">20</p>
+                  <p className="label">Minutes</p>
+                </div>
+                <div>
+                  <p className="time">35</p>
+                  <p className="label">Seconds</p>
+                </div>
+              </div>
+
+              <div className="actions hero-actions">
                 <WalletMultiButton className="btn primary" />
                 <a
                   className="btn ghost"
@@ -137,8 +265,13 @@ function AppShell() {
                   Docs (coming soon)
                 </button>
               </div>
+
               <WarriorStatus />
             </div>
+
+            <VideoBlock />
+
+            <FAQ />
           </main>
         </WalletModalProvider>
       </WalletProvider>
