@@ -127,7 +127,7 @@ function AppShell() {
                 <WalletMultiButton className="btn primary" />
                 <a
                   className="btn ghost"
-                  href="https://twitter.com/"
+                  href="https://x.com/excdotfun"
                   target="_blank"
                   rel="noreferrer"
                 >
