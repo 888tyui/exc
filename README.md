@@ -8,7 +8,7 @@ Modern Solana teaser site with a PostgreSQL backend that assigns a warrior numbe
 
 ## Backend
 ### Environment
-Set either `DATABASE_URL` (preferred) or the standard `PG*` env vars. Enable SSL (useful on Railway) with `PGSSL=true`.
+Copy `backend/env.example` to `backend/.env` (or set env vars in Railway). Set either `DATABASE_URL` (preferred) or the standard `PG*` env vars. Enable SSL (useful on Railway) with `PGSSL=true`.
 
 ```
 PORT=4000
@@ -25,11 +25,7 @@ npm start
 Creates table `warriors` if missing. `POST /warriors` accepts `{ address }`, upserts by address, and returns `{ warriorNumber }` (dense rank by insert order). `GET /health` checks DB connectivity.
 
 ## Frontend
-Set the backend URL:
-```
-# frontend/.env
-VITE_API_BASE=https://your-backend-url
-```
+Copy `frontend/env.example` to `frontend/.env` (or set env vars in Railway) and set `VITE_API_BASE` to your backend URL.
 
 Run locally:
 ```
