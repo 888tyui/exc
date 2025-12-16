@@ -39,7 +39,7 @@ body {
   box-shadow: none;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .logo-mark {
