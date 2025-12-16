@@ -8,7 +8,7 @@ Modern Solana teaser site with a PostgreSQL backend that assigns a warrior numbe
 
 ## Backend
 ### Environment
-Copy `backend/env.example` to `backend/.env` (or set env vars in Railway). Set either `DATABASE_URL` (preferred) or the standard `PG*` env vars. Enable SSL (useful on Railway) with `PGSSL=true`.
+Copy `backend/env.example` to `backend/.env` (or set env vars in Railway). Set either `DATABASE_URL` (preferred) or the standard `PG*` env vars (`PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`, `PGDATABASE`). Enable SSL (useful on Railway) with `PGSSL=true`.
 
 ```
 PORT=4000

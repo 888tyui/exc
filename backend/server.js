@@ -8,6 +8,20 @@ const PORT = process.env.PORT || 4000;
 const connectionOptions = {};
 if (process.env.DATABASE_URL) {
   connectionOptions.connectionString = process.env.DATABASE_URL;
+} else if (
+  process.env.PGHOST ||
+  process.env.PGPORT ||
+  process.env.PGUSER ||
+  process.env.PGPASSWORD ||
+  process.env.PGDATABASE
+) {
+  connectionOptions.host = process.env.PGHOST;
+  connectionOptions.port = process.env.PGPORT
+    ? Number(process.env.PGPORT)
+    : undefined;
+  connectionOptions.user = process.env.PGUSER;
+  connectionOptions.password = process.env.PGPASSWORD;
+  connectionOptions.database = process.env.PGDATABASE;
 }
 if (process.env.PGSSL === "true") {
   connectionOptions.ssl = { rejectUnauthorized: false };
